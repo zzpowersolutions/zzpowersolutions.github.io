@@ -8,10 +8,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Load Inter Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Load Noto Sans SC for Chinese support (optional but recommended) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap" rel="stylesheet">
     <style>
         /* Custom styles */
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', 'Noto Sans SC', sans-serif;
             scroll-behavior: smooth;
         }
         /* Style for the logo (since it's an image and might not load) */
@@ -50,17 +52,28 @@
 
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center space-x-8">
-                <a href="#home" class="text-white hover:text-yellow-500 font-medium transition-colors text-sm uppercase tracking-wider">Home</a>
-                <a href="#about" class="text-white hover:text-yellow-500 font-medium transition-colors text-sm uppercase tracking-wider">About</a>
-                <a href="#services" class="text-white hover:text-yellow-500 font-medium transition-colors text-sm uppercase tracking-wider">Services</a>
-                <a href="#contact" class="text-white hover:text-yellow-500 font-medium transition-colors text-sm uppercase tracking-wider">Contact</a>
+                <a href="#home" class="text-white hover:text-yellow-500 font-medium transition-colors text-sm uppercase tracking-wider" data-i18n="nav_home">Home</a>
+                <a href="#about" class="text-white hover:text-yellow-500 font-medium transition-colors text-sm uppercase tracking-wider" data-i18n="nav_about">About</a>
+                <a href="#services" class="text-white hover:text-yellow-500 font-medium transition-colors text-sm uppercase tracking-wider" data-i18n="nav_services">Services</a>
+                <a href="#contact" class="text-white hover:text-yellow-500 font-medium transition-colors text-sm uppercase tracking-wider" data-i18n="nav_contact">Contact</a>
+                
+                <!-- Language Toggle (Desktop) -->
+                <button id="lang-toggle-desktop" class="text-white hover:text-yellow-500 font-bold border border-white/30 px-3 py-1 rounded transition-colors text-sm">
+                    中文
+                </button>
+
                 <a href="#contact">
-                    <button class="px-4 py-2 rounded-md font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-yellow-500 hover:bg-yellow-400 text-black focus:ring-yellow-500 text-sm">Get a Quote</button>
+                    <button class="px-4 py-2 rounded-md font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-yellow-500 hover:bg-yellow-400 text-black focus:ring-yellow-500 text-sm" data-i18n="nav_quote">Get a Quote</button>
                 </a>
             </div>
 
             <!-- Mobile Menu Button -->
-            <div class="md:hidden">
+            <div class="md:hidden flex items-center space-x-4">
+                <!-- Language Toggle (Mobile) -->
+                <button id="lang-toggle-mobile-btn" class="text-white font-bold text-sm border border-white/30 px-2 py-1 rounded">
+                    中文
+                </button>
+
                 <button id="menu-toggle" class="text-white focus:outline-none">
                     <svg id="menu-icon-open" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     <svg id="menu-icon-close" class="w-8 h-8 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -71,11 +84,11 @@
         <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="md:hidden hidden bg-gray-900 absolute top-full left-0 w-full border-t border-gray-800">
             <div class="px-4 py-6 space-y-4 flex flex-col">
-                <a href="#home" class="text-white text-lg font-medium hover:text-yellow-500 mobile-nav-link">Home</a>
-                <a href="#about" class="text-white text-lg font-medium hover:text-yellow-500 mobile-nav-link">About</a>
-                <a href="#services" class="text-white text-lg font-medium hover:text-yellow-500 mobile-nav-link">Services</a>
-                <a href="#contact" class="text-white text-lg font-medium hover:text-yellow-500 mobile-nav-link">Contact</a>
-                <button class="px-6 py-3 rounded-md font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-yellow-500 hover:bg-yellow-400 text-black focus:ring-yellow-500 w-full text-center">Call Now</button>
+                <a href="#home" class="text-white text-lg font-medium hover:text-yellow-500 mobile-nav-link" data-i18n="nav_home">Home</a>
+                <a href="#about" class="text-white text-lg font-medium hover:text-yellow-500 mobile-nav-link" data-i18n="nav_about">About</a>
+                <a href="#services" class="text-white text-lg font-medium hover:text-yellow-500 mobile-nav-link" data-i18n="nav_services">Services</a>
+                <a href="#contact" class="text-white text-lg font-medium hover:text-yellow-500 mobile-nav-link" data-i18n="nav_contact">Contact</a>
+                <a href="tel:4122142532" class="px-6 py-3 rounded-md font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-yellow-500 hover:bg-yellow-400 text-black focus:ring-yellow-500 w-full text-center" data-i18n="mobile_call_now">Call Now</a>
             </div>
         </div>
     </nav>
@@ -96,29 +109,29 @@
             </div>
 
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight tracking-tight">
-            YOUR TRUSTED <br/>
-            <span class="text-clip-custom">ELECTRICIAN</span>
+            <span data-i18n="hero_title_1">YOUR TRUSTED</span> <br/>
+            <span class="text-clip-custom" data-i18n="hero_title_2">ELECTRICIAN</span>
         </h1>
 
             
             <!-- Highlighted Status -->
             <div class="inline-block bg-white/5 backdrop-blur-sm border border-yellow-500/30 rounded-lg px-8 py-4 mb-10">
-                <p class="text-xl md:text-3xl text-yellow-500 font-black uppercase tracking-widest">
+                <p class="text-xl md:text-3xl text-yellow-500 font-black uppercase tracking-widest" data-i18n="hero_badges">
                     Registered • Licensed • Insured
                 </p>
             </div>
 
-            <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-10 font-medium">
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-10 font-medium" data-i18n="hero_subtitle">
                 Professional, Reliable, and Safe Electrical Services<br />
                 Serving the Greater Pittsburgh community
             </p>
 
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <a href="#contact">
-                    <button class="px-6 py-3 rounded-md font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-yellow-500 hover:bg-yellow-400 text-black focus:ring-yellow-500 w-full sm:w-auto text-lg">Schedule Service</button>
+                    <button class="px-6 py-3 rounded-md font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-yellow-500 hover:bg-yellow-400 text-black focus:ring-yellow-500 w-full sm:w-auto text-lg" data-i18n="btn_schedule">Schedule Service</button>
                 </a>
                 <a href="#services">
-                    <button class="px-6 py-3 rounded-md font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 border-2 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black focus:ring-yellow-500 w-full sm:w-auto text-lg">Our Services</button>
+                    <button class="px-6 py-3 rounded-md font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 border-2 border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-black focus:ring-yellow-500 w-full sm:w-auto text-lg" data-i18n="btn_services">Our Services</button>
                 </a>
             </div>
         </div>
@@ -127,11 +140,11 @@
     <!-- About Section -->
     <section id="about" class="py-16 md:py-24 bg-white text-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-yellow-500 font-bold tracking-wider uppercase mb-2">About ZZ Power Solutions</h2>
-            <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Led by Engineering Excellence</h3>
+            <h2 class="text-yellow-500 font-bold tracking-wider uppercase mb-2" data-i18n="about_heading">About ZZ Power Solutions</h2>
+            <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8" data-i18n="about_subheading">Led by Engineering Excellence</h3>
             
             <div class="text-gray-600 text-lg leading-relaxed space-y-6 max-w-4xl mx-auto">
-                <p>
+                <p data-i18n="about_text">
                     ZZ Power Solutions was founded by Master Electrician, Jessie Zhao in 2025. Our electrical updates and installations are always safe, to code, and aesthetically pleasing. Jessie Zhao is specialized in electrical services, and obtained a PhD degree in Electrical Engineering from the University of Pittsburgh, with 10+ years of experience in electrical systems.
                 </p>
             </div>
@@ -140,35 +153,35 @@
                 <!-- Check Circle Icon -->
                 <div class="flex items-center text-gray-800 font-medium bg-gray-50 px-6 py-3 rounded-full border border-gray-100">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-500 w-5 h-5 mr-3"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                    PhD in Electrical Engineering
+                    <span data-i18n="badge_phd">PhD in Electrical Engineering</span>
                 </div>
                 <div class="flex items-center text-gray-800 font-medium bg-gray-50 px-6 py-3 rounded-full border border-gray-100">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-500 w-5 h-5 mr-3"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                    Master Electrician
+                    <span data-i18n="badge_master">Master Electrician</span>
                 </div>
                 <div class="flex items-center text-gray-800 font-medium bg-gray-50 px-6 py-3 rounded-full border border-gray-100">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-500 w-5 h-5 mr-3"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                    10+ Years Experience
+                    <span data-i18n="badge_exp">10+ Years Experience</span>
                 </div>
             </div>
 
             <!-- Project Photos Section -->
             <div class="mt-16 text-center">
-                <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8">Our Work in Action ⚡</h3>
+                <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8" data-i18n="gallery_title">Our Work in Action ⚡</h3>
                 <!-- Modified grid: Taller images, brighter, stronger hover zoom -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                     <div class="relative overflow-hidden rounded-xl shadow-2xl group cursor-pointer">
-                        <img src="project_1.jpg" alt="Electrical Project Photo 1" class="w-full h-56 md:h-72 object-cover transition-transform duration-700 ease-out group-hover:scale-110" onerror="this.onerror=null; this.src='placeholder_project_1.png';">
+                        <img src="project_1.jpg" alt="Electrical Project Photo 1" class="w-full h-58 md:h-72 object-cover transition-transform duration-700 ease-out group-hover:scale-110" onerror="this.onerror=null; this.src='placeholder_project_1.png';">
                         <!-- Removed dark overlay for brightness -->
                     </div>
                     <div class="relative overflow-hidden rounded-xl shadow-2xl group cursor-pointer">
-                        <img src="project_1.jpg" alt="Electrical Project Photo 2" class="w-full h-56 md:h-72 object-cover transition-transform duration-700 ease-out group-hover:scale-110" onerror="this.onerror=null; this.src='placeholder_project_2.png';">
+                        <img src="project_1.jpg" alt="Electrical Project Photo 2" class="w-full h-58 md:h-72 object-cover transition-transform duration-700 ease-out group-hover:scale-110" onerror="this.onerror=null; this.src='placeholder_project_2.png';">
                     </div>
                     <div class="relative overflow-hidden rounded-xl shadow-2xl group cursor-pointer">
-                        <img src="project_1.jpg" alt="Electrical Project Photo 3" class="w-full h-56 md:h-72 object-cover transition-transform duration-700 ease-out group-hover:scale-110" onerror="this.onerror=null; this.src='placeholder_project_3.png';">
+                        <img src="project_1.jpg" alt="Electrical Project Photo 3" class="w-full h-58 md:h-72 object-cover transition-transform duration-700 ease-out group-hover:scale-110" onerror="this.onerror=null; this.src='placeholder_project_3.png';">
                     </div>
                     <div class="relative overflow-hidden rounded-xl shadow-2xl group cursor-pointer">
-                        <img src="project_1.jpg" alt="Electrical Project Photo 4" class="w-full h-56 md:h-72 object-cover transition-transform duration-700 ease-out group-hover:scale-110" onerror="this.onerror=null; this.src='placeholder_project_4.png';">
+                        <img src="project_1.jpg" alt="Electrical Project Photo 4" class="w-full h-58 md:h-72 object-cover transition-transform duration-700 ease-out group-hover:scale-110" onerror="this.onerror=null; this.src='placeholder_project_4.png';">
                     </div>
                 </div>
             </div>
@@ -179,9 +192,9 @@
     <section id="services" class="py-16 md:py-24 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-yellow-500 font-bold tracking-wider uppercase mb-2">What We Do</h2>
-                <h3 class="text-3xl md:text-4xl font-bold text-gray-900">Comprehensive Electrical Services</h3>
-                <p class="mt-4 text-gray-600 text-lg">From troubleshooting to full-scale installations, we have the expertise to handle it all.</p>
+                <h2 class="text-yellow-500 font-bold tracking-wider uppercase mb-2" data-i18n="services_heading">What We Do</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-900" data-i18n="services_subheading">Comprehensive Electrical Services</h3>
+                <p class="mt-4 text-gray-600 text-lg" data-i18n="services_desc">From troubleshooting to full-scale installations, we have the expertise to handle it all.</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -190,24 +203,24 @@
                     <div class="w-14 h-14 bg-yellow-100 rounded-lg flex items-center justify-center mb-6 group-hover:bg-yellow-500 transition-colors duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-600 group-hover:text-white transition-colors duration-300 w-8 h-8"><path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"></path></svg>
                     </div>
-                    <h4 class="text-xl font-bold text-gray-900 mb-3">Service/Panel Upgrades</h4>
-                    <p class="text-gray-600 leading-relaxed">Modernize your home's power capacity. Safe, code-compliant heavy-ups for older Pittsburgh homes.</p>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3" data-i18n="svc_1_title">Service/Panel Upgrades</h4>
+                    <p class="text-gray-600 leading-relaxed" data-i18n="svc_1_desc">Modernize your home's power capacity. Safe, code-compliant heavy-ups for older Pittsburgh homes.</p>
                 </div>
                 <!-- Service Card 2: Rewiring & Repair -->
                 <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group">
                     <div class="w-14 h-14 bg-yellow-100 rounded-lg flex items-center justify-center mb-6 group-hover:bg-yellow-500 transition-colors duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-600 group-hover:text-white transition-colors duration-300 w-8 h-8"><path d="M18 7v6l-5 5h-1L7 13V7"></path><path d="M12 2v5"></path></svg>
                     </div>
-                    <h4 class="text-xl font-bold text-gray-900 mb-3">Rewiring & Repair</h4>
-                    <p class="text-gray-600 leading-relaxed">Complete home rewiring, knob-and-tube replacement, and troubleshooting for faulty outlets.</p>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3" data-i18n="svc_2_title">Rewiring & Repair</h4>
+                    <p class="text-gray-600 leading-relaxed" data-i18n="svc_2_desc">Complete home rewiring, knob-and-tube replacement, and troubleshooting for faulty outlets.</p>
                 </div>
                 <!-- Service Card 3: Lighting Solutions -->
                 <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group">
                     <div class="w-14 h-14 bg-yellow-100 rounded-lg flex items-center justify-center mb-6 group-hover:bg-yellow-500 transition-colors duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-600 group-hover:text-white transition-colors duration-300 w-8 h-8"><path d="M15 14l-3-7-3 7-4 3h10l-4-3z"></path><path d="M12 21a1 1 0 0 1-1-1v-2h2v2a1 1 0 0 1-1 1z"></path></svg>
                     </div>
-                    <h4 class="text-xl font-bold text-gray-900 mb-3">Lighting Solutions</h4>
-                    <p class="text-gray-600 leading-relaxed">Interior and exterior lighting design, LED retrofits, and smart home lighting installation.</p>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3" data-i18n="svc_3_title">Lighting Solutions</h4>
+                    <p class="text-gray-600 leading-relaxed" data-i18n="svc_3_desc">Interior and exterior lighting design, LED retrofits, and smart home lighting installation.</p>
                 </div>
                 <!-- Service Card 4: Dedicated Circuit Installation -->
                 <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group">
@@ -218,20 +231,20 @@
                             <line x1="15" y1="12" x2="9" y2="12"></line>
                         </svg>
                     </div>
-                    <h4 class="text-xl font-bold text-gray-900 mb-3">Dedicated Circuit Installation</h4>
-                    <p class="text-gray-600 leading-relaxed">Safe and reliable installation of dedicated circuits for EV chargers, HVAC systems, kitchen appliances, and other high-power devices.</p>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3" data-i18n="svc_4_title">Dedicated Circuit Installation</h4>
+                    <p class="text-gray-600 leading-relaxed" data-i18n="svc_4_desc">Safe and reliable installation of dedicated circuits for EV chargers, HVAC systems, kitchen appliances, and other high-power devices.</p>
                 </div>
             </div>
             
             <div class="mt-16 bg-gray-900 rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between relative overflow-hidden">
                  <div class="absolute top-0 right-0 -mt-10 -mr-10 w-64 h-64 bg-yellow-500 rounded-full opacity-10 blur-3xl"></div>
                  <div class="relative z-10 mb-6 md:mb-0">
-                   <h4 class="text-2xl md:text-3xl font-bold text-white mb-2">Need a Custom Solution?</h4>
-                   <p class="text-gray-400">We handle unique commercial and industrial projects too.</p>
+                   <h4 class="text-2xl md:text-3xl font-bold text-white mb-2" data-i18n="cta_custom_title">Need a Custom Solution?</h4>
+                   <p class="text-gray-400" data-i18n="cta_custom_desc">We handle unique commercial, residential, and industrial projects too.</p>
                  </div>
                  <div class="relative z-10">
                    <a href="#contact">
-                     <button class="px-6 py-3 rounded-md font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-yellow-500 hover:bg-yellow-400 text-black focus:ring-yellow-500">Contact Us Today</button>
+                     <button class="px-6 py-3 rounded-md font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-yellow-500 hover:bg-yellow-400 text-black focus:ring-yellow-500" data-i18n="cta_contact_btn">Contact Us Today</button>
                    </a>
                  </div>
             </div>
@@ -243,9 +256,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16">
                 <div>
-                    <h2 class="text-yellow-500 font-bold tracking-wider uppercase mb-2">Get In Touch</h2>
-                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Contact</h3>
-                    <p class="text-gray-600 text-lg mb-10">
+                    <h2 class="text-yellow-500 font-bold tracking-wider uppercase mb-2" data-i18n="contact_heading">Get In Touch</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6" data-i18n="contact_subheading">Contact</h3>
+                    <p class="text-gray-600 text-lg mb-10" data-i18n="contact_desc">
                         We provide free estimates for major installations and transparent pricing for repairs.
                     </p>
                     
@@ -255,7 +268,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-yellow-600"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.63A2 2 0 0 1 3.08 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                             </div>
                             <div>
-                                <h4 class="font-bold text-gray-900">Phone</h4>
+                                <h4 class="font-bold text-gray-900" data-i18n="contact_phone">Phone</h4>
                                 <p class="text-gray-600">(412) 214-2532</p>
                                 <p class="text-sm text-gray-500"></p>
                             </div>
@@ -266,7 +279,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-yellow-600"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
                             </div>
                             <div>
-                                <h4 class="font-bold text-gray-900">Email</h4>
+                                <h4 class="font-bold text-gray-900" data-i18n="contact_email">Email</h4>
                                 <p class="text-gray-600">jrzhao317@gmail.com</p>
                             </div>
                         </div>
@@ -276,8 +289,8 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-yellow-600"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                             </div>
                             <div>
-                                <h4 class="font-bold text-gray-900">Service Area</h4>
-                                <p class="text-gray-600">Greater Pittsburgh Area<br/>Allegheny County & Beyond</p>
+                                <h4 class="font-bold text-gray-900" data-i18n="contact_area">Service Area</h4>
+                                <p class="text-gray-600" data-i18n="contact_area_desc">Greater Pittsburgh Area<br/>Allegheny County & Beyond</p>
                             </div>
                         </div>
                     </div>
@@ -294,52 +307,52 @@
                         
                         <!-- Name -->
                         <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
-                            <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors" placeholder="John Doe" required>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2" data-i18n="form_name">Name</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors" placeholder="John Doe" data-i18n-placeholder="form_name_ph" required>
                         </div>
 
                         <!-- Service Address -->
                         <div>
-                             <label for="address" class="block text-sm font-medium text-gray-700 mb-2">Service Address</label>
-                             <input type="text" id="address" name="address" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors" placeholder="123 Main St, Pittsburgh, PA" required>
+                             <label for="address" class="block text-sm font-medium text-gray-700 mb-2" data-i18n="form_address">Service Address</label>
+                             <input type="text" id="address" name="address" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors" placeholder="123 Main St, Pittsburgh, PA" data-i18n-placeholder="form_address_ph" required>
                         </div>
 
                         <!-- Phone & Email Row -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-2" data-i18n="form_phone">Phone Number</label>
                                 <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors" placeholder="(412) 555-0123" required>
                             </div>
                             <div>
-                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2" data-i18n="form_email">Email Address</label>
                                 <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors" placeholder="john@example.com" required>
                             </div>
                         </div>
 
-                       <!-- Service Needed -->
+                        <!-- Service Needed -->
                         <div>
-                            <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Service Needed</label>
+                            <label for="service" class="block text-sm font-medium text-gray-700 mb-2" data-i18n="form_service">Service Needed</label>
                             <select id="service" name="service" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors">
-                                <option>Service/Panel Upgrade</option>
-                                <option>Service Entrance Cable Replacement</option>
-                                <option>EV Charger Installation</option>
-                                <option>Sub-panel Installation</option>
-                                <option>Whole House Rewiring/New Construction</option>
-                                <option>Dedicated Circuit Installation</option>
-                                <option>Lighting Installation</option>
-                                <option>Smart Switch/Outlet Installation</option>
-                                <option>General Repair</option>
-                                <option>Other</option>
+                                <option data-i18n="opt_panel">Service/Panel Upgrade</option>
+                                <option data-i18n="opt_cable">Service Entrance Cable Replacement</option>
+                                <option data-i18n="opt_subpanel">Sub-panel Installation</option>
+                                <option data-i18n="opt_ev">EV Charger Installation</option>
+                                <option data-i18n="opt_rewire">Whole House Rewiring</option>
+                                <option data-i18n="opt_circuit">Dedicated Circuit Installation</option>
+                                <option data-i18n="opt_lighting">Lighting Installation</option>
+                                <option data-i18n="opt_smart">Smart Switch/Outlet Installation</option>
+                                <option data-i18n="opt_trouble">Basic Troubleshooting & Repair</option>
+                                <option data-i18n="opt_other">Other</option>
                             </select>
                         </div>
 
                         <!-- Message (Optional) -->
                         <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message <span class="text-gray-400 font-normal">(Optional)</span></label>
-                            <textarea rows="3" id="message" name="message" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors" placeholder="Tell us about your electrical issue..."></textarea>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2"><span data-i18n="form_message">Message</span> <span class="text-gray-400 font-normal" data-i18n="form_optional">(Optional)</span></label>
+                            <textarea rows="4" id="message" name="message" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors" placeholder="Tell us about your electrical issue..." data-i18n-placeholder="form_message_ph"></textarea>
                         </div>
 
-                        <button type="submit" class="px-6 py-4 rounded-md font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-yellow-500 hover:bg-yellow-400 text-black focus:ring-yellow-500 w-full text-lg">Send Message</button>
+                        <button type="submit" class="px-6 py-4 rounded-md font-bold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-yellow-500 hover:bg-yellow-400 text-black focus:ring-yellow-500 w-full text-lg" data-i18n="form_submit">Send Message</button>
                     </form>
                     <p id="message-status" class="mt-4 text-center text-sm font-medium hidden"></p>
                 </div>
@@ -358,31 +371,37 @@
                         </div>
                         <span class="text-xl font-extrabold tracking-tighter text-white">ZZ POWER <span class="text-yellow-500">SOLUTIONS</span></span>
                     </a>
-                    <p class="text-gray-400 max-w-sm mb-6">
+                    <p class="text-gray-400 max-w-sm mb-6" data-i18n="footer_desc">
                         Professional, reliable, and safe electrical services for the greater Pittsburgh community. We power your home with integrity.
                     </p>
                     <div class="flex space-x-4">
                         <!-- Social placeholders -->
+                        <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-yellow-500 hover:text-black transition-colors cursor-pointer">
+                          <span class="font-bold text-sm">FB</span>
+                        </div>
+                        <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-yellow-500 hover:text-black transition-colors cursor-pointer">
+                           <span class="font-bold text-sm">IN</span>
+                        </div>
                     </div>
                 </div>
                 
                 <div>
-                    <h4 class="font-bold text-lg mb-6">Quick Links</h4>
+                    <h4 class="font-bold text-lg mb-6" data-i18n="footer_links_title">Quick Links</h4>
                     <ul class="space-y-3 text-gray-400">
-                        <li><a href="#home" class="hover:text-yellow-500 transition-colors">Home</a></li>
-                        <li><a href="#about" class="hover:text-yellow-500 transition-colors">About Us</a></li>
-                        <li><a href="#services" class="hover:text-yellow-500 transition-colors">Services</a></li>
-                        <li><a href="#contact" class="hover:text-yellow-500 transition-colors">Contact</a></li>
+                        <li><a href="#home" class="hover:text-yellow-500 transition-colors" data-i18n="nav_home">Home</a></li>
+                        <li><a href="#about" class="hover:text-yellow-500 transition-colors" data-i18n="nav_about">About Us</a></li>
+                        <li><a href="#services" class="hover:text-yellow-500 transition-colors" data-i18n="nav_services">Services</a></li>
+                        <li><a href="#contact" class="hover:text-yellow-500 transition-colors" data-i18n="nav_contact">Contact</a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="font-bold text-lg mb-6">Contact</h4>
+                    <h4 class="font-bold text-lg mb-6" data-i18n="footer_contact_title">Contact</h4>
                     <ul class="space-y-3 text-gray-400">
-                        <li>Jessie Zhao</li>
+                        <li data-i18n="footer_owner_name">Jessie Zhao</li>
                         <li>(412) 214-2532</li>
                         <li>jrzhao317@gmail.com</li>
-                        <li class="text-yellow-500 font-bold mt-4">Emergency Service Available</li>
+                        <li class="text-yellow-500 font-bold mt-4" data-i18n="footer_emergency">Emergency Service Available</li>
                     </ul>
                 </div>
             </div>
@@ -394,7 +413,194 @@
     </footer>
 
     <script>
+        // Translation Data
+        const translations = {
+            en: {
+                nav_home: "Home",
+                nav_about: "About",
+                nav_services: "Services",
+                nav_contact: "Contact",
+                nav_quote: "Get a Quote",
+                mobile_call_now: "Call Now",
+                hero_title_1: "YOUR TRUSTED",
+                hero_title_2: "ELECTRICIAN",
+                hero_badges: "Registered • Licensed • Insured",
+                hero_subtitle: "Professional, Reliable, and Safe Electrical Services<br />Serving the Greater Pittsburgh community",
+                btn_schedule: "Schedule Service",
+                btn_services: "Our Services",
+                about_heading: "About ZZ Power Solutions",
+                about_subheading: "Led by Engineering Excellence",
+                about_text: "ZZ Power Solutions was founded by Master Electrician, Jessie Zhao in 2025. Our electrical updates and installations are always safe, to code, and aesthetically pleasing. Jessie Zhao is specialized in electrical services, and obtained a PhD degree in Electrical Engineering from the University of Pittsburgh, with 10+ years of experience in electrical systems.",
+                badge_phd: "PhD in Electrical Engineering",
+                badge_master: "Master Electrician",
+                badge_exp: "10+ Years Experience",
+                gallery_title: "Our Work in Action ⚡",
+                services_heading: "What We Do",
+                services_subheading: "Comprehensive Electrical Services",
+                services_desc: "From troubleshooting to full-scale installations, we have the expertise to handle it all.",
+                svc_1_title: "Service/Panel Upgrades",
+                svc_1_desc: "Modernize your home's power capacity. Safe, code-compliant heavy-ups for older Pittsburgh homes.",
+                svc_2_title: "Rewiring & Repair",
+                svc_2_desc: "Complete home rewiring, knob-and-tube replacement, and troubleshooting for faulty outlets.",
+                svc_3_title: "Lighting Solutions",
+                svc_3_desc: "Interior and exterior lighting design, LED retrofits, and smart home lighting installation.",
+                svc_4_title: "Dedicated Circuit Installation",
+                svc_4_desc: "Safe and reliable installation of dedicated circuits for EV chargers, HVAC systems, kitchen appliances, and other high-power devices.",
+                cta_custom_title: "Need a Custom Solution?",
+                cta_custom_desc: "We handle unique commercial, residential, and industrial projects too.",
+                cta_contact_btn: "Contact Us Today",
+                contact_heading: "Get In Touch",
+                contact_subheading: "Contact",
+                contact_desc: "We provide free estimates for major installations and transparent pricing for repairs.",
+                contact_phone: "Phone",
+                contact_email: "Email",
+                contact_area: "Service Area",
+                contact_area_desc: "Greater Pittsburgh Area<br/>Allegheny County & Beyond",
+                form_name: "Name",
+                form_name_ph: "John Doe",
+                form_address: "Service Address",
+                form_address_ph: "123 Main St, Pittsburgh, PA",
+                form_phone: "Phone Number",
+                form_email: "Email Address",
+                form_service: "Service Needed",
+                form_message: "Message",
+                form_optional: "(Optional)",
+                form_message_ph: "Tell us about your electrical issue...",
+                form_submit: "Send Message",
+                opt_panel: "Panel Upgrade",
+                opt_cable: "Service Entrance Cable Replacement",
+                opt_subpanel: "Sub-panel Installation",
+                opt_ev: "EV Charger Installation",
+                opt_rewire: "Whole House Rewiring/New Construction",
+                opt_circuit: "Dedicated Circuit Installation",
+                opt_lighting: "Lighting Installation",
+                opt_smart: "Smart Switch/Outlet Installation",
+                opt_trouble: "General Repair",
+                opt_other: "Other",
+                footer_desc: "Professional, reliable, and safe electrical services for the greater Pittsburgh community. We power your home with integrity.",
+                footer_links_title: "Quick Links",
+                footer_contact_title: "Contact",
+                footer_owner_name: "Jessie Zhao",
+                footer_emergency: "Emergency Service Available"
+            },
+            zh: {
+                nav_home: "首页",
+                nav_about: "关于我们",
+                nav_services: "服务项目",
+                nav_contact: "联系我们",
+                nav_quote: "获取报价",
+                mobile_call_now: "立即致电",
+                hero_title_1: "最值得信赖的",
+                hero_title_2: "专业电工",
+                hero_badges: "注册 • 持证 • 保险",
+                hero_subtitle: "专业、可靠、安全的住宅商业电力服务<br />服务于大匹兹堡社区",
+                btn_schedule: "预约服务",
+                btn_services: "我们的服务",
+                about_heading: "关于 ZZ Power Solutions",
+                about_subheading: "专业 • 可靠 • 安全",
+                about_text: "ZZ Power Solutions 由专业电工赵洁茹于 2025 年创立。我们的电力升级和安装始终坚持安全、合规且美观的原则。Jessie Zhao 专精于电力电气服务，拥有匹兹堡大学电力电气工程博士学位，并在电力系统领域拥有超过10年的丰富经验。",
+                badge_phd: "电力电气工程博士",
+                badge_master: "高级专业电工执照",
+                badge_exp: "10年以上从业经验",
+                gallery_title: "工程实景展示 ⚡",
+                services_heading: "我们的服务",
+                services_subheading: "全方位的电力电气服务",
+                services_desc: "从故障排查到全面安装，我们具备处理一切问题的专业能力。",
+                svc_1_title: "电箱/服务升级",
+                svc_1_desc: "升级家庭供电容量。为匹兹堡老房提供安全、合规的电力升级。",
+                svc_2_title: "重新布线与维修",
+                svc_2_desc: "全屋重新布线，老式旋钮管线更换，以及故障插座排查。",
+                svc_3_title: "照明解决方案",
+                svc_3_desc: "室内外照明设计，LED 改造，以及智能家居照明安装。",
+                svc_4_title: "专用电路安装",
+                svc_4_desc: "为电动车充电桩、暖通空调、厨房电器及其他大功率设备提供安全可靠的专用电路安装。",
+                cta_custom_title: "需要定制解决方案？",
+                cta_custom_desc: "我们承接各类特殊的住宅，商业和工业项目。",
+                cta_contact_btn: "立即联系我们",
+                contact_heading: "保持联系",
+                contact_subheading: "联系方式",
+                contact_desc: "我们为大型安装项目提供免费估价，维修服务价格透明。",
+                contact_phone: "电话",
+                contact_email: "邮箱",
+                contact_area: "服务区域",
+                contact_area_desc: "大匹兹堡地区 / 阿勒格尼县及周边",
+                form_name: "姓名",
+                form_name_ph: "王伟",
+                form_address: "服务地址",
+                form_address_ph: "123 Main St 123, Pittsburgh, PA 15213",
+                form_phone: "电话号码",
+                form_email: "电子邮箱",
+                form_service: "所需服务",
+                form_message: "留言",
+                form_optional: "(选填)",
+                form_message_ph: "请描述您的电力问题...",
+                form_submit: "发送信息",
+                opt_panel: "电箱升级",
+                opt_cable: "进户线更换",
+                opt_subpanel: "分电箱安装",
+                opt_ev: "电动车充电桩安装",
+                opt_rewire: "全屋重新布线/新建房",
+                opt_circuit: "专用电路安装",
+                opt_lighting: "灯具安装",
+                opt_smart: "智能开关/插座安装",
+                opt_trouble: "故障排查与维修",
+                opt_other: "其他",
+                footer_desc: "专业、可靠、安全的电力服务，服务于大匹兹堡社区。我们以诚信可靠点亮您的家。",
+                footer_links_title: "快速链接",
+                footer_contact_title: "联系方式",
+                footer_owner_name: "赵洁茹",
+                footer_emergency: "提供紧急服务"
+            }
+        };
+
+        // Current language state
+        let currentLang = 'en';
+
+        // Function to switch language
+        function setLanguage(lang) {
+            currentLang = lang;
+            
+            // Update button texts
+            const btnText = lang === 'en' ? '中文' : 'EN';
+            document.getElementById('lang-toggle-desktop').textContent = btnText;
+            document.getElementById('lang-toggle-mobile-btn').textContent = btnText;
+
+            // Update all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        // For placeholder translation (if needed, handled via separate attr below)
+                    } else {
+                        el.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+
+            // Update placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
+            // --- Language Switcher Setup ---
+            const desktopToggle = document.getElementById('lang-toggle-desktop');
+            const mobileToggleBtn = document.getElementById('lang-toggle-mobile-btn');
+
+            const toggleLang = () => {
+                const newLang = currentLang === 'en' ? 'zh' : 'en';
+                setLanguage(newLang);
+            };
+
+            desktopToggle.addEventListener('click', toggleLang);
+            mobileToggleBtn.addEventListener('click', toggleLang);
+
+            // --- Existing Code Below ---
+
             const navbar = document.getElementById('navbar');
             const menuToggle = document.getElementById('menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -445,7 +651,9 @@
                 
                 const submitButton = contactForm.querySelector('button[type="submit"]');
                 const originalButtonText = submitButton.innerText;
-                submitButton.innerText = 'Sending...';
+                
+                // Update loading text based on language
+                submitButton.innerText = currentLang === 'zh' ? '发送中...' : 'Sending...';
                 submitButton.disabled = true;
 
                 const formData = new FormData(contactForm);
@@ -464,20 +672,33 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    messageStatus.textContent = "Thanks! We've received your message and will get back to you soon.";
+                    const successMsg = currentLang === 'zh' 
+                        ? "谢谢！我们已收到您的信息，会尽快回复。" 
+                        : "Thanks! We've received your message and will get back to you soon.";
+                    
+                    messageStatus.textContent = successMsg;
                     messageStatus.classList.remove('hidden', 'text-red-600', 'text-gray-600');
                     messageStatus.classList.add('text-green-600');
                     contactForm.reset();
                 })
                 .catch(error => {
-                    messageStatus.textContent = "Something went wrong. Please try again or call us directly.";
+                    const errorMsg = currentLang === 'zh'
+                        ? "出错了。请重试或直接致电我们。"
+                        : "Something went wrong. Please try again or call us directly.";
+
+                    messageStatus.textContent = errorMsg;
                     messageStatus.classList.remove('hidden', 'text-green-600', 'text-gray-600');
                     messageStatus.classList.add('text-red-600');
                     console.error('Error:', error);
                 })
                 .finally(() => {
-                    submitButton.innerText = originalButtonText;
+                    submitButton.innerText = originalButtonText; // Restore button text (which will be in correct lang due to logic)
                     submitButton.disabled = false;
+                    // Re-apply translation to button to ensure it goes back to correct state
+                    const key = submitButton.getAttribute('data-i18n');
+                    if(key && translations[currentLang][key]) {
+                         submitButton.innerText = translations[currentLang][key];
+                    }
                 });
             });
         });
