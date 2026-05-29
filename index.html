@@ -663,12 +663,11 @@
                 data['_subject'] = `New Quote Request from ${data.name}`;
 
                 fetch('https://formsubmit.co/ajax/jrzhao317@gmail.com', {
-                    method: 'POST',
-                    headers: { 
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify(data)
+                  method: 'POST',
+                  headers: {
+                    'Accept': 'application/json'
+                  },
+                  body: formData
                 })
                 .then(response => response.json())
                 .then(data => {
