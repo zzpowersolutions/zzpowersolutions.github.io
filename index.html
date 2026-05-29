@@ -4,12 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZZ Power Solutions - Your Trusted Pittsburgh Electrician</title>
-    <!-- Load Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Load Inter Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <!-- Load Noto Sans SC for Chinese support (optional but recommended) -->
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap" rel="stylesheet">
+    
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // ⚠️ 注意：请在下方填入你自己的 EmailJS Public Key
+            emailjs.init({
+              publicKey: "DOR9A3bdkvh36Gfzx",
+            });
+        })();
+    </script>
+
     <style>
         /* Custom styles */
         body {
@@ -36,11 +44,9 @@
 </head>
 <body class="min-h-screen text-gray-900 bg-white">
 
-    <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-black py-6">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             <a href="#home" class="flex items-center space-x-3 group">
-                <!-- Custom Logo - Image Placeholder -->
                 <div class="text-yellow-500 bg-white/5 p-1 rounded-md">
                    <img src="logo_lgo.png" alt="ZZ Power Solutions Logo" class="w-10 h-10 object-contain zbolt-logo" onerror="this.style.display='none';">
                 </div>
@@ -50,14 +56,12 @@
                 </div>
             </a>
 
-            <!-- Desktop Menu -->
             <div class="hidden md:flex items-center space-x-8">
                 <a href="#home" class="text-white hover:text-yellow-500 font-medium transition-colors text-sm uppercase tracking-wider" data-i18n="nav_home">Home</a>
                 <a href="#about" class="text-white hover:text-yellow-500 font-medium transition-colors text-sm uppercase tracking-wider" data-i18n="nav_about">About</a>
                 <a href="#services" class="text-white hover:text-yellow-500 font-medium transition-colors text-sm uppercase tracking-wider" data-i18n="nav_services">Services</a>
                 <a href="#contact" class="text-white hover:text-yellow-500 font-medium transition-colors text-sm uppercase tracking-wider" data-i18n="nav_contact">Contact</a>
                 
-                <!-- Language Toggle (Desktop) -->
                 <button id="lang-toggle-desktop" class="text-white hover:text-yellow-500 font-bold border border-white/30 px-3 py-1 rounded transition-colors text-sm">
                     中文
                 </button>
@@ -67,9 +71,7 @@
                 </a>
             </div>
 
-            <!-- Mobile Menu Button -->
             <div class="md:hidden flex items-center space-x-4">
-                <!-- Language Toggle (Mobile) -->
                 <button id="lang-toggle-mobile-btn" class="text-white font-bold text-sm border border-white/30 px-2 py-1 rounded">
                     中文
                 </button>
@@ -81,7 +83,6 @@
             </div>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="md:hidden hidden bg-gray-900 absolute top-full left-0 w-full border-t border-gray-800">
             <div class="px-4 py-6 space-y-4 flex flex-col">
                 <a href="#home" class="text-white text-lg font-medium hover:text-yellow-500 mobile-nav-link" data-i18n="nav_home">Home</a>
@@ -93,28 +94,23 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 bg-gray-900 overflow-hidden">
         <div class="absolute inset-0 opacity-30">
-            <!-- Background Gradient -->
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black"></div>
         </div>
         
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <!-- Logo Figure -->
             <div class="flex justify-center mb-8">
                 <div class="bg-gray-800 border border-gray-700 p-4 rounded-2xl shadow-2xl shadow-black/50">
                     <img src="logo_lgo.png" alt="ZZ Power Solutions Logo" class="w-20 h-20 object-contain zbolt-logo" onerror="this.style.display='none';">
                 </div>
             </div>
 
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight tracking-tight">
-            <span data-i18n="hero_title_1">YOUR TRUSTED</span> <br/>
-            <span class="text-clip-custom" data-i18n="hero_title_2">ELECTRICIAN</span>
-        </h1>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-8 leading-tight tracking-tight">
+                <span data-i18n="hero_title_1">YOUR TRUSTED</span> <br/>
+                <span class="text-clip-custom" data-i18n="hero_title_2">ELECTRICIAN</span>
+            </h1>
 
-            
-            <!-- Highlighted Status -->
             <div class="inline-block bg-white/5 backdrop-blur-sm border border-yellow-500/30 rounded-lg px-8 py-4 mb-10">
                 <p class="text-xl md:text-3xl text-yellow-500 font-black uppercase tracking-widest" data-i18n="hero_badges">
                     Registered • Licensed • Insured
@@ -122,8 +118,7 @@
             </div>
 
             <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-10 font-medium" data-i18n="hero_subtitle">
-                Professional, Reliable, and Safe Electrical Services<br />
-                Serving the Greater Pittsburgh community
+                Professional, Reliable, and Safe Electrical Services<br />Serving the Greater Pittsburgh community
             </p>
 
             <div class="flex flex-col sm:flex-row justify-center gap-4">
@@ -137,7 +132,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="py-16 md:py-24 bg-white text-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-yellow-500 font-bold tracking-wider uppercase mb-2" data-i18n="about_heading">About ZZ Power Solutions</h2>
@@ -150,7 +144,6 @@
             </div>
             
             <div class="mt-10 flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
-                <!-- Check Circle Icon -->
                 <div class="flex items-center text-gray-800 font-medium bg-gray-50 px-6 py-3 rounded-full border border-gray-100">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-500 w-5 h-5 mr-3"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                     <span data-i18n="badge_phd">PhD in Electrical Engineering</span>
@@ -165,14 +158,11 @@
                 </div>
             </div>
 
-            <!-- Project Photos Section -->
             <div class="mt-16 text-center">
                 <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-8" data-i18n="gallery_title">Our Work in Action ⚡</h3>
-                <!-- Modified grid: Taller images, brighter, stronger hover zoom -->
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                     <div class="relative overflow-hidden rounded-xl shadow-2xl group cursor-pointer">
                         <img src="fig/project_1.jpg" alt="Electrical Project Photo 1" class="w-full h-58 md:h-72 object-cover transition-transform duration-700 ease-out group-hover:scale-110" onerror="this.onerror=null; this.src='placeholder_project_1.png';">
-                        <!-- Removed dark overlay for brightness -->
                     </div>
                     <div class="relative overflow-hidden rounded-xl shadow-2xl group cursor-pointer">
                         <img src="fig/project_2.JPG" alt="Electrical Project Photo 2" class="w-full h-58 md:h-72 object-cover transition-transform duration-700 ease-out group-hover:scale-110" onerror="this.onerror=null; this.src='placeholder_project_2.png';">
@@ -188,7 +178,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
     <section id="services" class="py-16 md:py-24 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -198,7 +187,6 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Service Card 1: Service/Panel Upgrades -->
                 <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group">
                     <div class="w-14 h-14 bg-yellow-100 rounded-lg flex items-center justify-center mb-6 group-hover:bg-yellow-500 transition-colors duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-600 group-hover:text-white transition-colors duration-300 w-8 h-8"><path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"></path></svg>
@@ -206,7 +194,6 @@
                     <h4 class="text-xl font-bold text-gray-900 mb-3" data-i18n="svc_1_title">Service/Panel Upgrades</h4>
                     <p class="text-gray-600 leading-relaxed" data-i18n="svc_1_desc">Modernize your home's power capacity. Safe, code-compliant heavy-ups for older Pittsburgh homes.</p>
                 </div>
-                <!-- Service Card 2: Rewiring & Repair -->
                 <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group">
                     <div class="w-14 h-14 bg-yellow-100 rounded-lg flex items-center justify-center mb-6 group-hover:bg-yellow-500 transition-colors duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-600 group-hover:text-white transition-colors duration-300 w-8 h-8"><path d="M18 7v6l-5 5h-1L7 13V7"></path><path d="M12 2v5"></path></svg>
@@ -214,7 +201,6 @@
                     <h4 class="text-xl font-bold text-gray-900 mb-3" data-i18n="svc_2_title">Rewiring & Repair</h4>
                     <p class="text-gray-600 leading-relaxed" data-i18n="svc_2_desc">Complete home rewiring, knob-and-tube replacement, and troubleshooting for faulty outlets.</p>
                 </div>
-                <!-- Service Card 3: Lighting Solutions -->
                 <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group">
                     <div class="w-14 h-14 bg-yellow-100 rounded-lg flex items-center justify-center mb-6 group-hover:bg-yellow-500 transition-colors duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-600 group-hover:text-white transition-colors duration-300 w-8 h-8"><path d="M15 14l-3-7-3 7-4 3h10l-4-3z"></path><path d="M12 21a1 1 0 0 1-1-1v-2h2v2a1 1 0 0 1-1 1z"></path></svg>
@@ -222,7 +208,6 @@
                     <h4 class="text-xl font-bold text-gray-900 mb-3" data-i18n="svc_3_title">Lighting Solutions</h4>
                     <p class="text-gray-600 leading-relaxed" data-i18n="svc_3_desc">Interior and exterior lighting design, LED retrofits, and smart home lighting installation.</p>
                 </div>
-                <!-- Service Card 4: Dedicated Circuit Installation -->
                 <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group">
                     <div class="w-14 h-14 bg-yellow-100 rounded-lg flex items-center justify-center mb-6 group-hover:bg-yellow-500 transition-colors duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-yellow-600 group-hover:text-white transition-colors duration-300 w-8 h-8">
@@ -251,7 +236,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="py-16 md:py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16">
@@ -270,7 +254,6 @@
                             <div>
                                 <h4 class="font-bold text-gray-900" data-i18n="contact_phone">Phone</h4>
                                 <p class="text-gray-600">(412) 214-2532</p>
-                                <p class="text-sm text-gray-500"></p>
                             </div>
                         </div>
                         
@@ -297,27 +280,17 @@
                 </div>
 
                 <div class="bg-gray-50 p-8 md:p-10 rounded-2xl shadow-lg border border-gray-100">
-                    <!-- 
-                        Form modified for FormSubmit. 
-                        NOTE: The JS below handles the submission to prevent page reload.
-                    -->
                     <form id="contact-form" class="space-y-6">
-                        <input type="hidden" name="_subject" value="New Quote Request from Website">
-                        <input type="hidden" name="_captcha" value="false">
-                        
-                        <!-- Name -->
                         <div>
                             <label for="name" class="block text-sm font-medium text-gray-700 mb-2" data-i18n="form_name">Name</label>
                             <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors" placeholder="John Doe" data-i18n-placeholder="form_name_ph" required>
                         </div>
 
-                        <!-- Service Address -->
                         <div>
                              <label for="address" class="block text-sm font-medium text-gray-700 mb-2" data-i18n="form_address">Service Address</label>
                              <input type="text" id="address" name="address" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors" placeholder="123 Main St, Pittsburgh, PA" data-i18n-placeholder="form_address_ph" required>
                         </div>
 
-                        <!-- Phone & Email Row -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <label for="phone" class="block text-sm font-medium text-gray-700 mb-2" data-i18n="form_phone">Phone Number</label>
@@ -329,7 +302,6 @@
                             </div>
                         </div>
 
-                        <!-- Service Needed -->
                         <div>
                             <label for="service" class="block text-sm font-medium text-gray-700 mb-2" data-i18n="form_service">Service Needed</label>
                             <select id="service" name="service" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors">
@@ -346,7 +318,6 @@
                             </select>
                         </div>
 
-                        <!-- Message (Optional) -->
                         <div>
                             <label for="message" class="block text-sm font-medium text-gray-700 mb-2"><span data-i18n="form_message">Message</span> <span class="text-gray-400 font-normal" data-i18n="form_optional">(Optional)</span></label>
                             <textarea rows="2" id="message" name="message" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors" placeholder="Tell us about your electrical issue..." data-i18n-placeholder="form_message_ph"></textarea>
@@ -360,7 +331,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-gray-900 text-white pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12 border-b border-gray-800 pb-12">
@@ -375,7 +345,6 @@
                         Professional, reliable, and safe electrical services for the greater Pittsburgh community. We power your home with integrity.
                     </p>
                     <div class="flex space-x-4">
-                        <!-- Social placeholders -->
                         <div class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-yellow-500 hover:text-black transition-colors cursor-pointer">
                           <span class="font-bold text-sm">FB</span>
                         </div>
@@ -553,31 +522,21 @@
             }
         };
 
-        // Current language state
         let currentLang = 'en';
 
-        // Function to switch language
         function setLanguage(lang) {
             currentLang = lang;
-            
-            // Update button texts
             const btnText = lang === 'en' ? '中文' : 'EN';
             document.getElementById('lang-toggle-desktop').textContent = btnText;
             document.getElementById('lang-toggle-mobile-btn').textContent = btnText;
 
-            // Update all elements with data-i18n attribute
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang][key]) {
-                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-                        // For placeholder translation (if needed, handled via separate attr below)
-                    } else {
-                        el.innerHTML = translations[lang][key];
-                    }
+                    el.innerHTML = translations[lang][key];
                 }
             });
 
-            // Update placeholders
             document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
                 const key = el.getAttribute('data-i18n-placeholder');
                 if (translations[lang][key]) {
@@ -587,7 +546,6 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            // --- Language Switcher Setup ---
             const desktopToggle = document.getElementById('lang-toggle-desktop');
             const mobileToggleBtn = document.getElementById('lang-toggle-mobile-btn');
 
@@ -599,8 +557,6 @@
             desktopToggle.addEventListener('click', toggleLang);
             mobileToggleBtn.addEventListener('click', toggleLang);
 
-            // --- Existing Code Below ---
-
             const navbar = document.getElementById('navbar');
             const menuToggle = document.getElementById('menu-toggle');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -610,10 +566,8 @@
             const messageStatus = document.getElementById('message-status');
             const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
             
-            // Set current year in footer
             document.getElementById('current-year').textContent = new Date().getFullYear();
 
-            // 1. Navigation Scroll Effect
             const handleScroll = () => {
                 if (window.scrollY > 50) {
                     navbar.classList.remove('py-6');
@@ -624,9 +578,8 @@
                 }
             };
             window.addEventListener('scroll', handleScroll);
-            handleScroll(); // Run once on load
+            handleScroll();
 
-            // 2. Mobile Menu Toggle
             const toggleMenu = () => {
                 const isOpen = mobileMenu.classList.toggle('hidden');
                 menuIconOpen.classList.toggle('hidden', !isOpen);
@@ -635,7 +588,6 @@
             
             menuToggle.addEventListener('click', toggleMenu);
 
-            // Close mobile menu when a link is clicked
             mobileNavLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     if (!mobileMenu.classList.contains('hidden')) {
@@ -644,60 +596,48 @@
                 });
             });
 
-
-            // 3. Contact Form Submission (Updated for AJAX FormSubmit)
+            // 2. 更新后的 EmailJS 异步提交逻辑
             contactForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 
                 const submitButton = contactForm.querySelector('button[type="submit"]');
                 const originalButtonText = submitButton.innerText;
                 
-                // Update loading text based on language
                 submitButton.innerText = currentLang === 'zh' ? '发送中...' : 'Sending...';
                 submitButton.disabled = true;
 
-                const formData = new FormData(contactForm);
-                const data = Object.fromEntries(formData.entries());
-                
-                // Add a custom subject based on the input
-                data['_subject'] = `New Quote Request from ${data.name}`;
+                // ⚠️ 注意：请分别填入你在 EmailJS 申请的 Service ID 和 Template ID
+                const serviceID = 'service_detgxih';
+                const templateID = 'template_994qzh3';
 
-                fetch('https://formsubmit.co/ajax/jrzhao317@gmail.com', {
-                    method: 'POST',
-                    headers: { 
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                })
-                .then(response => response.json())
-                .then(data => {
+                emailjs.sendForm(serviceID, templateID, contactForm)
+                .then(() => {
                     const successMsg = currentLang === 'zh' 
                         ? "谢谢！我们已收到您的信息，会尽快回复。" 
                         : "Thanks! We've received your message and will get back to you soon.";
                     
                     messageStatus.textContent = successMsg;
-                    messageStatus.classList.remove('hidden', 'text-red-600', 'text-gray-600');
+                    messageStatus.classList.remove('hidden', 'text-red-600');
                     messageStatus.classList.add('text-green-600');
                     contactForm.reset();
                 })
-                .catch(error => {
+                .catch((error) => {
                     const errorMsg = currentLang === 'zh'
                         ? "出错了。请重试或直接致电我们。"
                         : "Something went wrong. Please try again or call us directly.";
 
                     messageStatus.textContent = errorMsg;
-                    messageStatus.classList.remove('hidden', 'text-green-600', 'text-gray-600');
+                    messageStatus.classList.remove('hidden', 'text-green-600');
                     messageStatus.classList.add('text-red-600');
-                    console.error('Error:', error);
+                    console.error('EmailJS Error:', error);
                 })
                 .finally(() => {
-                    submitButton.innerText = originalButtonText; // Restore button text (which will be in correct lang due to logic)
                     submitButton.disabled = false;
-                    // Re-apply translation to button to ensure it goes back to correct state
                     const key = submitButton.getAttribute('data-i18n');
                     if(key && translations[currentLang][key]) {
                          submitButton.innerText = translations[currentLang][key];
+                    } else {
+                        submitButton.innerText = originalButtonText;
                     }
                 });
             });
