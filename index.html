@@ -51,9 +51,17 @@
         .swiper {
             padding-bottom: 3rem !important;
         }
+        /* 灯箱遮罩层基础动画 */
+        #lightbox-modal {
+            transition: opacity 0.25s ease-in-out;
+        }
     </style>
 </head>
 <body class="min-h-screen text-gray-900 bg-white">
+
+    <div id="lightbox-modal" class="fixed inset-0 bg-black/90 z-[100] flex items-center justify-center hidden opacity-0 cursor-zoom-out" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Enlarged Project View" class="max-w-[95%] max-h-[90vh] object-contain rounded-lg shadow-2xl transition-transform duration-300 scale-95">
+    </div>
 
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-black py-6">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
@@ -174,39 +182,39 @@
                 
                 <div class="swiper mySwiper max-w-7xl mx-auto px-4">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide px-1">
-                            <div class="relative overflow-hidden rounded-xl shadow-md group cursor-pointer bg-gray-50">
-                                <img src="fig/project_1.jpeg" alt="Electrical Project Photo 1" class="w-full h-56 object-contain transition-transform duration-700 ease-out group-hover:scale-105" onerror="this.onerror=null; this.src='placeholder_project_1.png';">
+                        <div class="swiper-slide px-2">
+                            <div class="relative overflow-hidden rounded-xl shadow-md group cursor-zoom-in bg-gray-50" onclick="openLightbox('fig/project_1.jpeg')">
+                                <img src="fig/project_1.jpeg" alt="Electrical Project Photo 1" class="w-full h-80 object-contain transition-transform duration-700 ease-out group-hover:scale-105" onerror="this.onerror=null; this.src='placeholder_project_1.png';">
                             </div>
                         </div>
-                        <div class="swiper-slide px-1">
-                            <div class="relative overflow-hidden rounded-xl shadow-md group cursor-pointer bg-gray-50">
-                                <img src="fig/project_2.JPG" alt="Electrical Project Photo 2" class="w-full h-56 object-contain transition-transform duration-700 ease-out group-hover:scale-105" onerror="this.onerror=null; this.src='placeholder_project_2.png';">
+                        <div class="swiper-slide px-2">
+                            <div class="relative overflow-hidden rounded-xl shadow-md group cursor-zoom-in bg-gray-50" onclick="openLightbox('fig/project_2.JPG')">
+                                <img src="fig/project_2.JPG" alt="Electrical Project Photo 2" class="w-full h-80 object-contain transition-transform duration-700 ease-out group-hover:scale-105" onerror="this.onerror=null; this.src='placeholder_project_2.png';">
                             </div>
                         </div>
-                        <div class="swiper-slide px-1">
-                            <div class="relative overflow-hidden rounded-xl shadow-md group cursor-pointer bg-gray-50">
-                                <img src="fig/project_3.JPG" alt="Electrical Project Photo 3" class="w-full h-56 object-contain transition-transform duration-700 ease-out group-hover:scale-105" onerror="this.onerror=null; this.src='placeholder_project_3.png';">
+                        <div class="swiper-slide px-2">
+                            <div class="relative overflow-hidden rounded-xl shadow-md group cursor-zoom-in bg-gray-50" onclick="openLightbox('fig/project_3.JPG')">
+                                <img src="fig/project_3.JPG" alt="Electrical Project Photo 3" class="w-full h-80 object-contain transition-transform duration-700 ease-out group-hover:scale-105" onerror="this.onerror=null; this.src='placeholder_project_3.png';">
                             </div>
                         </div>
-                        <div class="swiper-slide px-1">
-                            <div class="relative overflow-hidden rounded-xl shadow-md group cursor-pointer bg-gray-50">
-                                <img src="fig/project_4.jpg" alt="Electrical Project Photo 4" class="w-full h-56 object-contain transition-transform duration-700 ease-out group-hover:scale-105" onerror="this.onerror=null; this.src='placeholder_project_4.png';">
+                        <div class="swiper-slide px-2">
+                            <div class="relative overflow-hidden rounded-xl shadow-md group cursor-zoom-in bg-gray-50" onclick="openLightbox('fig/project_4.jpg')">
+                                <img src="fig/project_4.jpg" alt="Electrical Project Photo 4" class="w-full h-80 object-contain transition-transform duration-700 ease-out group-hover:scale-105" onerror="this.onerror=null; this.src='placeholder_project_4.png';">
                             </div>
                         </div>
-                        <div class="swiper-slide px-1">
-                            <div class="relative overflow-hidden rounded-xl shadow-md group cursor-pointer bg-gray-50">
-                                <img src="fig/project_5.jpeg" alt="Electrical Project Photo 5" class="w-full h-56 object-contain transition-transform duration-700 ease-out group-hover:scale-105" onerror="this.onerror=null; this.src='placeholder_project_5.png';">
+                        <div class="swiper-slide px-2">
+                            <div class="relative overflow-hidden rounded-xl shadow-md group cursor-zoom-in bg-gray-50" onclick="openLightbox('fig/project_5.jpeg')">
+                                <img src="fig/project_5.jpeg" alt="Electrical Project Photo 5" class="w-full h-80 object-contain transition-transform duration-700 ease-out group-hover:scale-105" onerror="this.onerror=null; this.src='placeholder_project_5.png';">
                             </div>
                         </div>
-                        <div class="swiper-slide px-1">
-                            <div class="relative overflow-hidden rounded-xl shadow-md group cursor-pointer bg-gray-50">
-                                <img src="fig/project_6.jpeg" alt="Electrical Project Photo 6" class="w-full h-56 object-contain transition-transform duration-700 ease-out group-hover:scale-105" onerror="this.onerror=null; this.src='placeholder_project_6.png';">
+                        <div class="swiper-slide px-2">
+                            <div class="relative overflow-hidden rounded-xl shadow-md group cursor-zoom-in bg-gray-50" onclick="openLightbox('fig/project_6.jpeg')">
+                                <img src="fig/project_6.jpeg" alt="Electrical Project Photo 6" class="w-full h-80 object-contain transition-transform duration-700 ease-out group-hover:scale-105" onerror="this.onerror=null; this.src='placeholder_project_6.png';">
                             </div>
                         </div>
-                        <div class="swiper-slide px-1">
-                            <div class="relative overflow-hidden rounded-xl shadow-md group cursor-pointer bg-gray-50">
-                                <img src="fig/project_7.jpeg" alt="Electrical Project Photo 7" class="w-full h-56 object-contain transition-transform duration-700 ease-out group-hover:scale-105" onerror="this.onerror=null; this.src='placeholder_project_7.png';">
+                        <div class="swiper-slide px-2">
+                            <div class="relative overflow-hidden rounded-xl shadow-md group cursor-zoom-in bg-gray-50" onclick="openLightbox('fig/project_7.jpeg')">
+                                <img src="fig/project_7.jpeg" alt="Electrical Project Photo 7" class="w-full h-80 object-contain transition-transform duration-700 ease-out group-hover:scale-105" onerror="this.onerror=null; this.src='placeholder_project_7.png';">
                             </div>
                         </div>
                     </div>
@@ -424,6 +432,34 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
+        // 全屏放大与复原逻辑
+        function openLightbox(imgSrc) {
+            const modal = document.getElementById('lightbox-modal');
+            const modalImg = document.getElementById('lightbox-img');
+            
+            modalImg.src = imgSrc;
+            modal.classList.remove('hidden');
+            // 延时让动画平滑生效
+            setTimeout(() => {
+                modal.classList.add('opacity-100');
+                modalImg.classList.remove('scale-95');
+                modalImg.classList.add('scale-100');
+            }, 20);
+        }
+
+        function closeLightbox() {
+            const modal = document.getElementById('lightbox-modal');
+            const modalImg = document.getElementById('lightbox-img');
+            
+            modal.classList.remove('opacity-100');
+            modalImg.classList.remove('scale-100');
+            modalImg.classList.add('scale-95');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 250);
+        }
+
         // Translation Data
         const translations = {
             en: {
@@ -638,10 +674,11 @@
                 });
             });
 
-            // 初始化 Swiper 轮播图 - 已调整为大屏一次展示 4 张
+            // 初始化 Swiper 轮播图 - 优化速度、数量及间距
             const swiper = new Swiper(".mySwiper", {
                 slidesPerView: 1, 
                 spaceBetween: 10,
+                speed: 200, // 滑动过渡速度由 300ms 缩短为 200ms，加快 1.5 倍
                 pagination: {
                     el: ".swiper-pagination",
                     clickable: true,
@@ -651,31 +688,23 @@
                     prevEl: ".swiper-button-prev",
                 },
                 breakpoints: {
-                    480: {
+                    550: {
                         slidesPerView: 2,
-                        spaceBetween: 10,
-                    },
-                    768: {
-                        slidesPerView: 3,
                         spaceBetween: 12,
                     },
-                    1024: {
-                        slidesPerView: 4,
-                        spaceBetween: 15,
-                    },
-                    1280: { // 调整为一次展示 4 张图
-                        slidesPerView: 4,
-                        spaceBetween: 15,
-                    },
+                    1024: { // 电脑中大屏统一一次展示 3 张图
+                        slidesPerView: 3,
+                        spaceBetween: 20,
+                    }
                 },
                 loop: true, 
                 autoplay: {
-                    delay: 3000,
+                    delay: 2500, // 自动轮播停留时间也稍微缩短，显得更高效
                     disableOnInteraction: false,
                 },
             });
 
-            // EmailJS 异步提交逻辑
+            // EmailJS 提交逻辑
             contactForm.addEventListener('submit', (e) => {
                 e.preventDefault();
                 
